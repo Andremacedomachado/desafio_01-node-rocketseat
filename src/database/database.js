@@ -63,4 +63,17 @@ export class Database {
             this.#persist()
         }
     }
+
+    complete_task(table, id) {
+        const rowIndex = this.#database[table].findIndex(row => row.id == id)
+        if (rowIndex > -1) {
+            const record = this.#database[table][rowIndex]
+            this.#database[table][rowIndex] = {
+                id,
+                ...record,
+                complete_at: Date()
+            }
+            this.#persist()
+        }
+    }
 }
