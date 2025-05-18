@@ -1,0 +1,13 @@
+{
+  "name": "desafio_01-node-rocketseat",
+  "version": "1.0.0",
+  "description": "Desafio de curso de node.js pela rocketseat com uma api rest de task com csv.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node src/server.js  --watch"
+  },
+  "keywords": [],
+  "author": "André Macedo Machado",
+  "license": "ISC"
+}
