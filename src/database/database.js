@@ -50,4 +50,17 @@ export class Database {
             this.#persist()
         }
     }
+
+    update(table, id, data) {
+        const rowIndex = this.#database[table].findIndex(row => row.id == id)
+        if (rowIndex > -1) {
+            const record = this.#database[table][rowIndex]
+            this.#database[table][rowIndex] = {
+                id,
+                ...record,
+                ...data
+            }
+            this.#persist()
+        }
+    }
 }

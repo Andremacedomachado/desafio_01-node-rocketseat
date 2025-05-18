@@ -81,4 +81,23 @@ export const routes = [
             return res.writeHead(204).end(JSON.stringify(tasks))
         }
     },
+    {
+        method: "PUT",
+        path: buildRoutePath("/tasks/:id"),
+        handler: (req, res) => { 
+            const { id } = req.params
+            const {...data} = req.body
+            const tasks = database.select('tasks', {
+                id
+            })
+
+            if (!tasks) {
+                return res.writeHead(404).end(JSON.stringify({ message: 'Task not exists' }))
+            }
+
+            database.update('tasks',id, data)
+
+            return res.writeHead(204).end(JSON.stringify(tasks))
+        }
+    },
 ]
