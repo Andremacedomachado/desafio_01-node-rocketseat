@@ -42,12 +42,25 @@ export const routes = [
                 id: randomUUID,
                 title,
                 description,
-                complete_at : null,
+                complete_at: null,
                 update_at: Date(),
                 create_at: Date(),
             })
 
             return res.writeHead(201).end()
         }
-    }
+    },
+    {
+        method: "GET",
+        path: buildRoutePath("/tasks"),
+        handler: (req, res) => {
+            const { search } = req.query
+            const tasks = database.select('tasks', {
+                title: search,
+                description: search
+            })
+
+            return res.writeHead(200).end(JSON.stringify(tasks))
+        }
+    },
 ]

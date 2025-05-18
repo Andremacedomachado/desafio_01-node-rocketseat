@@ -29,4 +29,17 @@ export class Database {
         this.#persist()
     }
 
+    select(table, search) {
+        let records = this.#database[table] ?? []
+        if (search) {
+            records = records.filter((row) => {
+                return Object.entries(search).some(([key, value]) => {
+                    if (!value) return true
+
+                    return row[key].includes(value)
+                })
+            })
+        }
+        return records
+    }
 }
