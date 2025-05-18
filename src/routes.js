@@ -39,7 +39,7 @@ export const routes = [
                 )
             }
             database.insert('tasks', {
-                id: randomUUID,
+                id: randomUUID(),
                 title,
                 description,
                 complete_at: null,
