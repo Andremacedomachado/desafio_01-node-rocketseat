@@ -9,5 +9,8 @@
   },
   "keywords": [],
   "author": "André Macedo Machado",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "csv-parser": "^3.2.0"
+  }
 }
